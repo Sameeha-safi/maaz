@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebration - Maaz's Birthday</title>
+    <title>Happy New Year Birthday Maaz! 🎉</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,75 +14,102 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
             min-height: 100vh;
-            padding: 2rem;
             overflow-x: hidden;
+            position: relative;
         }
 
-        .back-button {
+        .fireworks {
             position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .firework {
+            position: absolute;
             font-size: 2rem;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            animation: explode 2s ease-out infinite;
         }
 
-        .back-button:hover {
-            transform: scale(1.1) rotate(-10deg);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .page-title {
-            font-family: 'Caveat', cursive;
-            font-size: clamp(3rem, 10vw, 6rem);
-            text-align: center;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-            animation: bounceIn 1.5s ease;
-        }
-
-        @keyframes bounceIn {
+        @keyframes explode {
             0% {
-                opacity: 0;
-                transform: scale(0.3);
+                opacity: 1;
+                transform: scale(0);
             }
             50% {
                 opacity: 1;
-                transform: scale(1.1);
-            }
-            70% {
-                transform: scale(0.9);
             }
             100% {
-                transform: scale(1);
+                opacity: 0;
+                transform: scale(3);
             }
         }
 
-        .page-subtitle {
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .countdown-badge {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .main-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 12vw, 8rem);
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF6B6B, #FFD700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
             text-align: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 1rem;
             animation: fadeIn 2s ease;
+        }
+
+        .special-note {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 2.5s ease;
+            max-width: 600px;
         }
 
         @keyframes fadeIn {
@@ -90,74 +117,71 @@
             to { opacity: 1; }
         }
 
-        .cake-section {
-            background: white;
-            border-radius: 40px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: scaleIn 1s ease 0.5s both;
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            overflow: hidden;
+            margin: 2rem auto;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+            animation: rotate3d 10s ease-in-out infinite;
         }
 
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        @keyframes rotate3d {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(15deg); }
         }
 
-        .cake-illustration {
+        .photo-placeholder {
             width: 100%;
-            max-width: 400px;
-            height: 400px;
-            margin: 0 auto 2rem;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
         }
 
-        .cake-message {
-            font-family: 'Caveat', cursive;
-            font-size: 2.5rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .cake-text {
-            font-size: 1.15rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .party-grid {
+        .nav-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
             margin-top: 3rem;
+            padding: 0 2rem;
         }
 
-        .party-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem 2rem;
+        .nav-btn {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.9));
+            border: none;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
-            animation: popUp 0.6s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            animation: slideUp 0.8s ease;
             animation-fill-mode: both;
         }
 
-        .party-card:nth-child(1) { animation-delay: 0.8s; }
-        .party-card:nth-child(2) { animation-delay: 1s; }
-        .party-card:nth-child(3) { animation-delay: 1.2s; }
-        .party-card:nth-child(4) { animation-delay: 1.4s; }
+        .nav-btn:nth-child(1) { animation-delay: 0.2s; }
+        .nav-btn:nth-child(2) { animation-delay: 0.4s; }
+        .nav-btn:nth-child(3) { animation-delay: 0.6s; }
+        .nav-btn:nth-child(4) { animation-delay: 0.8s; }
 
-        @keyframes popUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(100px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -165,236 +189,116 @@
             }
         }
 
-        .party-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.4);
+        .nav-btn:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
         }
 
-        .party-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 2s ease-in-out infinite;
+        .nav-icon {
+            font-size: 3rem;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .party-title {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .party-text {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.7;
-        }
-
-        .final-celebration {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            border-radius: 35px;
-            padding: 4rem 3rem;
-            margin-top: 3rem;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-celebration::before {
-            content: '🎉';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.1;
-            top: -30px;
-            left: -20px;
-        }
-
-        .final-celebration::after {
-            content: '🎊';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.1;
-            bottom: -30px;
-            right: -20px;
-        }
-
-        .final-title {
-            font-family: 'Caveat', cursive;
-            font-size: clamp(2rem, 5vw, 4rem);
-            color: white;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-text {
-            font-size: 1.3rem;
-            color: white;
-            line-height: 1.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        .balloons {
+        .stars {
             position: fixed;
             width: 100%;
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            top: 0;
-            left: 0;
         }
 
-        .balloon {
+        .star {
             position: absolute;
-            font-size: 3rem;
-            animation: floatBalloon 10s ease-in-out infinite;
+            color: white;
+            font-size: 1rem;
+            animation: twinkle 3s ease-in-out infinite;
         }
 
-        @keyframes floatBalloon {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-            }
-            25% {
-                transform: translateY(-30px) translateX(20px);
-            }
-            50% {
-                transform: translateY(-60px) translateX(-20px);
-            }
-            75% {
-                transform: translateY(-30px) translateX(20px);
-            }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            .party-grid {
+            .nav-buttons {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="balloons" id="balloons"></div>
+    <div class="fireworks" id="fireworks"></div>
+    <div class="stars" id="stars"></div>
 
-    <a href="index.html" class="back-button">🏠</a>
+    <div class="hero-section">
+        <div class="countdown-badge">🎊 NEW YEAR SPECIAL BIRTHDAY 🎊</div>
+        
+        <h1 class="main-title">Happy Birthday Maaz!</h1>
+        <p class="subtitle">Born on New Year's Day! 🎆</p>
+        <p class="special-note">
+            Double celebration! New Year + Birthday = Twice the joy! 
+            You're not just starting a new year, you're celebrating another amazing year of life! 🎉
+        </p>
 
-    <div class="container">
-        <h1 class="page-title">Let's Celebrate! 🎊</h1>
-        <p class="page-subtitle">It's party time for the birthday king! 👑</p>
-
-        <div class="cake-section">
-            <div class="cake-illustration">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Giant birthday cake -->
-                    <rect x="120" y="280" width="160" height="100" fill="#FFB5A7" rx="15"/>
-                    <rect x="110" y="230" width="180" height="60" fill="#FEC8D8" rx="15"/>
-                    <rect x="100" y="180" width="200" height="60" fill="#D4C5F9" rx="15"/>
-                    <rect x="90" y="130" width="220" height="60" fill="#A8E6CF" rx="15"/>
-                    
-                    <!-- Frosting decoration -->
-                    <ellipse cx="120" cy="280" rx="15" ry="8" fill="white"/>
-                    <ellipse cx="160" cy="275" rx="15" ry="8" fill="white"/>
-                    <ellipse cx="200" cy="280" rx="15" ry="8" fill="white"/>
-                    <ellipse cx="240" cy="275" rx="15" ry="8" fill="white"/>
-                    <ellipse cx="280" cy="280" rx="15" ry="8" fill="white"/>
-                    
-                    <!-- Candles -->
-                    <rect x="150" y="95" width="12" height="35" fill="#FFE4B5"/>
-                    <rect x="194" y="95" width="12" height="35" fill="#FFE4B5"/>
-                    <rect x="238" y="95" width="12" height="35" fill="#FFE4B5"/>
-                    
-                    <!-- Flames -->
-                    <ellipse cx="156" cy="87" rx="8" ry="12" fill="#FF6B6B"/>
-                    <ellipse cx="200" cy="87" rx="8" ry="12" fill="#FF6B6B"/>
-                    <ellipse cx="244" cy="87" rx="8" ry="12" fill="#FF6B6B"/>
-                    
-                    <!-- Sparkles around cake -->
-                    <text x="50" y="150" font-size="35">✨</text>
-                    <text x="320" y="150" font-size="35">✨</text>
-                    <text x="40" y="280" font-size="30">⭐</text>
-                    <text x="340" y="280" font-size="30">⭐</text>
-                    <text x="60" y="210" font-size="25">💫</text>
-                    <text x="320" y="210" font-size="25">💫</text>
-                    
-                    <!-- Decorative hearts -->
-                    <text x="130" y="255" font-size="20">❤️</text>
-                    <text x="250" y="255" font-size="20">❤️</text>
-                    <text x="170" cy="205" font-size="20">💕</text>
-                    <text x="220" y="205" font-size="20">💕</text>
-                </svg>
-            </div>
-            <p class="cake-message">Make a Wish, Maaz! 🕯️✨</p>
-            <p class="cake-text">
-                Close your eyes, blow out the candles, and make the biggest wish! 
-                May all your dreams and wishes come true this year! 🎂🎉
-            </p>
-        </div>
-
-        <div class="party-grid">
-            <div class="party-card">
-                <div class="party-icon">🎈</div>
-                <h3 class="party-title">Party Mode ON!</h3>
-                <p class="party-text">Today is YOUR day! Time to celebrate, have fun, and make incredible memories. Let's party! 🥳</p>
-            </div>
-
-            <div class="party-card">
-                <div class="party-icon">🎁</div>
-                <h3 class="party-title">Gifts & Surprises</h3>
-                <p class="party-text">May your day be filled with amazing surprises, thoughtful gifts, and tons of love from everyone! 🎀</p>
-            </div>
-
-            <div class="party-card">
-                <div class="party-icon">🎵</div>
-                <h3 class="party-title">Music & Dance</h3>
-                <p class="party-text">Turn up the music and dance like nobody's watching! Let's groove to your favorite beats! 🕺💃</p>
-            </div>
-
-            <div class="party-card">
-                <div class="party-icon">🍰</div>
-                <h3 class="party-title">Cake & Treats</h3>
-                <p class="party-text">Indulge in delicious cake and all your favorite treats! Calories don't count on birthdays! 😋</p>
+        <div class="photo-frame">
+            <div class="photo-placeholder">
+                📸
             </div>
         </div>
+        <p style="color: #FFD700; font-size: 0.9rem; margin-top: 1rem;">Replace with Maaz's photo!</p>
 
-        <div class="final-celebration">
-            <h2 class="final-title">🎉 HAPPY BIRTHDAY MAAZ! 🎉</h2>
-            <p class="final-text">
-                Today we celebrate YOU! 🎂<br><br>
-                Another year older, wiser, and more awesome! You bring so much joy to everyone around you. 
-                Thank you for being such an incredible friend and an amazing person!<br><br>
-                May this year bring you:<br>
-                ✨ Endless happiness<br>
-                🌟 Great success<br>
-                💖 Unforgettable moments<br>
-                🎯 Achieved dreams<br>
-                🚀 New adventures<br><br>
-                <strong>Cheers to you, bro! Let's make this the BEST birthday ever! 🥳🎊</strong><br><br>
-                <span style="font-size: 2.5rem;">🎈🎁🎂🎉🎊🥳🎈</span>
-            </p>
+        <div class="nav-buttons">
+            <a href="newyear-memories.html" class="nav-btn">
+                <div class="nav-icon">📸</div>
+                <div>Photo Memories</div>
+            </a>
+
+            <a href="newyear-wishes.html" class="nav-btn">
+                <div class="nav-icon">🎁</div>
+                <div>Birthday Wishes</div>
+            </a>
+
+            <a href="newyear-journey.html" class="nav-btn">
+                <div class="nav-icon">🌟</div>
+                <div>Our Journey</div>
+            </a>
+
+            <a href="newyear-celebration.html" class="nav-btn">
+                <div class="nav-icon">🎉</div>
+                <div>Let's Celebrate!</div>
+            </a>
         </div>
     </div>
 
     <script>
-        // Create floating balloons
-        const balloonsContainer = document.getElementById('balloons');
-        const balloonEmojis = ['🎈', '🎈', '🎈'];
-        const balloonColors = ['red', 'blue', 'yellow', 'green', 'purple', 'pink'];
+        // Create fireworks
+        const fireworksContainer = document.getElementById('fireworks');
+        const fireworkEmojis = ['✨', '💫', '⭐', '🌟', '💥'];
         
-        for (let i = 0; i < 15; i++) {
-            const balloon = document.createElement('div');
-            balloon.className = 'balloon';
-            balloon.textContent = balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
-            balloon.style.left = Math.random() * 100 + '%';
-            balloon.style.top = Math.random() * 100 + '%';
-            balloon.style.animationDelay = Math.random() * 5 + 's';
-            balloon.style.animationDuration = (Math.random() * 5 + 8) + 's';
-            balloonsContainer.appendChild(balloon);
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.textContent = fireworkEmojis[Math.floor(Math.random() * fireworkEmojis.length)];
+            firework.style.left = Math.random() * 100 + '%';
+            firework.style.top = Math.random() * 100 + '%';
+            firework.style.animationDelay = Math.random() * 2 + 's';
+            fireworksContainer.appendChild(firework);
+            
+            setTimeout(() => firework.remove(), 2000);
+        }
+
+        setInterval(createFirework, 300);
+
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '⭐';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
+            starsContainer.appendChild(star);
         }
     </script>
 </body>
